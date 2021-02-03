@@ -18,6 +18,8 @@ public class Coche {
 	
 	private int kmRecorridos;
 	
+	private boolean finalizado;
+	
 	private boolean humano;
 	
 //	private int numCComp; // numero de coches compitiendo.
@@ -36,6 +38,7 @@ public class Coche {
 		this.estado = "parado";
 		this.velocidad = 0;
 		this.kmRecorridos = 0;
+		this.finalizado = false;
 		this.humano = humano;
 	}
 	
@@ -93,7 +96,20 @@ public class Coche {
 	public void setKmRecorridos(int kmRecorridos) {
 		this.kmRecorridos = 0;
 	}
+	
+	public boolean isFinalizado() {
+		return finalizado;
+	}
+	public void setFinalizado(boolean finalizado) {
+		this.finalizado = finalizado;
+	}
 
+	public boolean isHumano() {
+		return humano;
+	}
+	public void setHumano(boolean humano) {
+		this.humano = humano;
+	}
 
 	
 	// Fin Getter y Setters
@@ -102,12 +118,13 @@ public class Coche {
 	
 
 	
+	
+
 	// toString
 	@Override
 	public String toString() {
 		return "Coche [nombre del Piloto=" + nombrePilot + ", su dorsal es el=" + dorsal
-				+ " su estado es=" + estado
-				+ ", y con una potencia de=" + POTENCIA + "]";
+				+ " su estado es=" + estado + ", ha recorrido " + kmRecorridos + "Km, y lleva una velocidad actual de=" + velocidad + "]";
 	}
 	
 	
@@ -172,7 +189,17 @@ public class Coche {
 		}
 	}
 	
-	
+	public void mantenerMarcha() {
+		
+		if (estado.equalsIgnoreCase("Marcha")) {
+			velocidad = velocidad - 20;
+			if (velocidad <0) {
+				velocidad = 0;
+			}
+		} else {
+			System.out.println("No puedes mantener la marcha si tu velocidad es 0");
+		}
+	}
 
 	
 		

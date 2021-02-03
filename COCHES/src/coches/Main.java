@@ -18,24 +18,20 @@ public class Main {
 		
 		Carrera pista = new Carrera("Senda de Arena", "00", 2400, 8, "Carretera que atraviesa parte del desierto del Sahara");
 		
-		Coche vCoches[] = new Coche[pista.getCompMax()];
+		//Coche vCoches[] = new Coche[pista.getCompMax()];
 		
-		vCoches[0] = new Coche("Wolf O'Donnell", 13, pista.getLongitud(), true);
+		//vCoches[0] = new Coche("Wolf O'Donnell", 13, pista.getLongitud(), true);
 		
 		do { // Bucle principal del Juego
 		
-			Menu.mostrarMenu();
-			menuPrincipal = ver.nextInt();
+			menuPrincipal = Menu.mostrarMenu();
+			
 			
 			switch(menuPrincipal){
 			case 1:
 				
-				Menu.pintarPista();
-				
-				Menu.menuOpciones();
-				
-				
-				
+				pista.datosCoche();
+				pista.jugarCarrera();
 				
 				
 				
@@ -45,7 +41,7 @@ public class Main {
 				if (nCoches > pista.getCompMax()){
 					System.out.println("Numero de competidores maximo alcanzado");
 				}else{
-					Carrera.addCoche();
+					pista.addCoche();
 					System.out.println("Piloto registrado correctamente");
 				}
 				
